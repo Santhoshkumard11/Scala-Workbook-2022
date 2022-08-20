@@ -5,9 +5,13 @@ object DiceGame {
 
   def main(args: Array[String]): Unit =
     println("Welcome to Santhosh DiceGame!\nPress any key to start playing")
-    val discard = readLine()
+
+    // this is not needed but just in case
+    val _ = readLine()
     val runner = GameRunner()
 
+    // try to print all the args passed
+    args.foreach(println)
     runner.run()
 
 }
