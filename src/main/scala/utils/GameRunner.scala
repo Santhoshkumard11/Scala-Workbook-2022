@@ -15,18 +15,27 @@ class GameRunner {
   def run(): Any =
     try
       var isDone = false
+
+      // never use a while true loop
       while !isDone
       do
+        // rolling the dice
         currentPlayer.score += between(1,6)
+
+        // check if the player has won
         if currentPlayer.score >= 50 then
           isDone = true
 
+        // swap current player
         currentPlayerIndex match
         case 0 => currentPlayerIndex = 1
         case 1 => currentPlayerIndex = 0
+
+        // print the score of the players
         for player <- playerList
         do
           println(s"Current Score:\n${player.name} - ${player.score}")
+
         currentPlayer = playerList(currentPlayerIndex)
       end while
 
